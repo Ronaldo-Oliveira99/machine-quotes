@@ -4,6 +4,7 @@ import "../../index.css";
 const Machine = () => {
   const [data, setCitacao] = useState({});
   const [color, setColor] = useState("");
+  const [loading, setLoading] = useState(true);
 
   let colors = [
     "#16a085",
@@ -21,10 +22,9 @@ const Machine = () => {
   ];
 
   let mystyle = {
-    paddingTop: "180px",
-    width: "100%",
     backgroundColor: `${colors[color]}`,
-    height: "620px",
+    height: "100%",
+    paddingTop: "100px",
   };
 
   useEffect(() => {
@@ -36,6 +36,7 @@ const Machine = () => {
         setCitacao(data.quotes[Math.floor(Math.random() * data.quotes.length)]);
       });
     setColor(Math.floor(Math.random() * colors.length));
+    setLoading(false);
   }, []);
 
   function Box() {
@@ -47,13 +48,15 @@ const Machine = () => {
 
     console.log(Url);
     return (
-      <div id="quote-box">
+      <div id="quote-box" className="box">
         <h3 id="text" style={{ color: `${colors[color]}` }}>
-          {data.quote}
+          {data.quote ? data.quote : "...Loading"}
         </h3>
+
         <p id="author" style={{ color: `${colors[color]}` }}>
-          {` - ${data.author}`}
+          {` - ${data.author ? data.author : ""}`}
         </p>
+
         <section className="comands">
           <div className="socialMedia">
             <a id="tweet-quote" href={Url}>
@@ -71,7 +74,7 @@ const Machine = () => {
           </div>
 
           <input
-            id="new-quote"
+            id="new-quote container"
             style={{ backgroundColor: `${colors[color]}` }}
             className="button"
             type="button"
@@ -92,13 +95,12 @@ const Machine = () => {
       });
 
     setColor(Math.floor(Math.random() * colors.length));
+    setLoading(false);
   };
 
   return (
     <div style={mystyle}>
-      <div className="container">
-        <Box />
-      </div>
+      <Box />
     </div>
   );
 };

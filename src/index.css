@@ -1,4 +1,19 @@
-.container {
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.box {
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -40,4 +55,19 @@
 }
 .socialMedia {
   height: 40px;
+}
+@media only screen and (max-width: 500px) {
+  .box {
+    margin: 0 auto;
+    /* padding: 20px; */
+    width: 70%;
+    font-size: 1rem;
+  }
+  .comands {
+    display: flex;
+    flex-direction: column;
+  }
+  .socialMedia {
+    margin-bottom: 10px;
+  }
 }

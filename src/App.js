@@ -3,11 +3,7 @@ import Machine from "./components/Machine";
 import "./index.css";
 
 function App() {
-  return (
-    <div>
-      <Machine />
-    </div>
-  );
+  return <Machine />;
 }
 
 export default App;
