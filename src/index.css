@@ -18,10 +18,11 @@
 }
 
 .button {
-  width: 150px;
+  width: 120px;
   height: 40px;
   color: white;
   border-radius: 5px;
+  font-size: 14px;
 }
 .icon {
   width: 40px;
