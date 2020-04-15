@@ -75,7 +75,7 @@ const Machine = () => {
             style={{ backgroundColor: `${colors[color]}` }}
             className="button"
             type="button"
-            value="New Quotes"
+            value="News Quotes"
             onClick={handleChange}
           />
         </section>
